@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sankrathi Cup | Cricket Tournament</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --navy: #082653;
+    --blue: #123d7a;
+    --gold: #ffbd16;
+    --orange: #f47721;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--navy);
+    background: #fffdf7;
+    line-height: 1.6;
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--gold);
+}
+
+.logo span {
+    color: white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    min-height: 550px;
+    padding: 85px 8%;
+    display: flex;
+    align-items: center;
+    background:
+      linear-gradient(90deg,
+      rgba(255,248,220,.96),
+      rgba(255,255,255,.77),
+      rgba(255,246,210,.4)),
+      url("https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1800&q=85")
+      center/cover;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--gold);
+    padding: 7px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 75px);
+    line-height: 1.08;
+    margin-bottom: 18px;
+    color: var(--navy);
+}
+
+.hero h1 span {
+    color: #ed771d;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    max-width: 550px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 13px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.btn:hover {
+    background: var(--orange);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: var(--navy);
+    color: white;
+    margin-left: 10px;
+}
+
+.details {
+    margin: -35px auto 45px;
+    width: 88%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: white;
+    box-shadow: 0 8px 30px #001b3a1c;
+    border-radius: 18px;
+    padding: 28px 15px;
+}
+
+.detail {
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+}
+
+.detail:last-child {
+    border-right: none;
+}
+
+.detail .emoji {
+    font-size: 30px;
+}
+
+.detail h3 {
+    font-size: 16px;
+}
+
+.detail p {
+    font-size: 14px;
+    color: #53647b;
+}
+
+section {
+    padding: 65px 8%;
+    scroll-margin-top: 75px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #65748a;
+    margin-bottom: 35px;
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 20px;
+    box-shadow: 0 5px 22px #08265310;
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px #08265320;
+}
+
+.card .emoji {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.schedule {
+    background: #eef4fc;
+}
+
+.match-list {
+    max-width: 850px;
+    margin: auto;
+}
+
+.match {
+    background: white;
+    padding: 20px 25px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 3px 12px #001b3a0a;
+}
+
+.match strong {
+    color: var(--blue);
+}
+
+.match small {
+    color: #718096;
+}
+
+.rules-list {
+    max-width: 800px;
+    margin: 25px auto;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 5px 22px #08265310;
+}
+
+.rules-list li {
+    padding: 8px 0;
+}
+
+.registration {
+    background: linear-gradient(135deg, #082653, #174a88);
+    color: white;
+}
+
+.registration .section-subtitle {
+    color: #dbe7f8;
+}
+
+.form-box {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    color: var(--navy);
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.form-box label {
+    display: block;
+    margin: 12px 0 5px;
+    font-weight: bold;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+    outline: 2px solid var(--gold);
+    border-color: transparent;
+}
+
+.form-box .btn {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    background: #061a38;
+    color: white;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+@media (max-width: 850px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detail:nth-child(2) {
+        border-right: none;
+    }
+
+    .detail:nth-child(-n+2) {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .hero {
+        min-height: 460px;
+        padding: 60px 7%;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .btn-outline {
+        margin: 10px 0 0;
+    }
+
+    .details {
+        width: 92%;
+    }
+
+    .detail {
+        padding: 12px 5px;
+    }
+
+    .highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+
+    .match {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .rules-list,
+    .form-box {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🏏 Sankrathi <span>Cup</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#rules">Rules</a>
+        <a href="#register">Registration</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">🪁 Celebrate the Festival of Harvest</div>
+
+        <h1>SANKRATHI <span>FESTIVAL</span><br>CRICKET CUP</h1>
+
+        <p>
+            One festival. One passion. One trophy!
+            Join us for an exciting cricket tournament filled
+            with sportsmanship, celebration, and unforgettable memories.
+        </p>
+
+        <a href="#register" class="btn">🏏 Register Your Team</a>
+        <a href="#schedule" class="btn btn-outline">View Matches</a>
+    </div>
+</section>
+
+<div class="details">
+    <div class="detail">
+        <div class="emoji">📅</div>
+        <h3>Tournament Date</h3>
+        <p>Update event date</p>
+    </div>
+
+    <div class="detail">
+        <div class="emoji">📍</div>
+        <h3>Venue</h3>
+        <p>Your Cricket Ground</p>
+    </div>
+
+    <div class="detail">
+        <div class="emoji">🏏</div>
+        <h3>Teams</h3>
+        <p>8 Teams · T20 Format</p>
+    </div>
+
+    <div class="detail">
+        <div class="emoji">🏆</div>
+        <h3>Entry Fee</h3>
+        <p>Update entry fee</p>
+    </div>
+</div>
+
+<section id="about">
+    <h2 class="section-title">Tournament Highlights</h2>
+    <p class="section-subtitle">
+        More than cricket — a celebration of our Sankrathi spirit!
+    </p>
+
+    <div class="highlights">
+        <div class="card">
+            <div class="emoji">🏏</div>
+            <h3>Exciting Matches</h3>
+            <p>Experience competitive cricket and thrilling finishes.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">👥</div>
+            <h3>Team Spirit</h3>
+            <p>Bring your team together and compete for the cup.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🏆</div>
+            <h3>Exciting Prizes</h3>
+            <p>Trophies, awards, and prizes for top performers.</p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🪁</div>
+            <h3>Festival Fun</h3>
+            <p>Enjoy cricket, friendship, and Sankrathi celebrations.</p>
+        </div>
+    </div>
+</section>
+
+<section class="schedule" id="schedule">
+    <h2 class="section-title">Match Schedule</h2>
+    <p class="section-subtitle">
+        Sample fixtures — update teams, dates, and times before publishing.
+    </p>
+
+    <div class="match-list">
+        <div class="match">
+            <div>
+                <strong>Match 01</strong><br>
+                Team A 🆚 Team B
+            </div>
+            <div>
+                <small>League Match</small><br>
+                9:00 AM
+            </div>
+        </div>
+
+        <div class="match">
+            <div>
+                <strong>Match 02</strong><br>
+                Team C 🆚 Team D
+            </div>
+            <div>
+                <small>League Match</small><br>
+                11:00 AM
+            </div>
+        </div>
+
+        <div class="match">
+            <div>
+                <strong>Match 03</strong><br>
+                Team E 🆚 Team F
+            </div>
+            <div>
+                <small>League Match</small><br>
+                1:00 PM
+            </div>
+        </div>
+
+        <div class="match">
+            <div>
+                <strong>Grand Final</strong><br>
+                Finalists 🆚 Finalists
+            </div>
+            <div>
+                <small>Championship</small><br>
+                3:00 PM
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="rules">
+    <h2 class="section-title">Tournament Rules</h2>
+    <p class="section-subtitle">
+        Play fair, respect opponents, and enjoy the game.
+    </p>
+
+    <div class="rules-list">
+        <ol>
+            <li>Each team must register before the registration deadline.</li>
+            <li>Match format and overs will be confirmed by organizers.</li>
+            <li>Players must follow the umpire's decisions.</li>
+            <li>Teams should report to the venue before match time.</li>
+            <li>In case of a tie, the organizers will announce the tie-break rules.</li>
+            <li>Any disputes will be resolved by the tournament committee.</li>
+            <li>Organizers reserve the right to modify the schedule when necessary.</li>
+        </ol>
+    </div>
+</section>
+
+<section class="registration" id="register">
+    <h2 class="section-title">Register Your Team</h2>
+    <p class="section-subtitle">
+        Get ready to play, celebrate, and lift the Sankrathi Cup!
+    </p>
+
+    <form class="form-box" id="registrationForm">
+        <label for="captain">Captain Name</label>
+        <input type="text" id="captain" name="captain"
+               placeholder="Enter captain name" required>
+
+        <label for="team">Team Name</label>
+        <input type="text" id="team" name="team"
+               placeholder="Enter your team name" required>
+
+        <label for="phone">Contact Number</label>
+        <input type="tel" id="phone" name="phone"
+               placeholder="Enter mobile number"
+               pattern="[0-9]{10}" maxlength="10" required>
+
+        <label for="players">Number of Players</label>
+        <select id="players" name="players" required>
+            <option value="">Select players</option>
+            <option value="11">11 Players</option>
+            <option value="12">12 Players</option>
+            <option value="15">15 Players</option>
+        </select>
+
+        <label for="city">City / Area</label>
+        <input type="text" id="city" name="city"
+               placeholder="Enter your location" required>
+
+        <label for="message">Additional Details (Optional)</label>
+        <textarea id="message" name="message" rows="3"
+                  placeholder="Any questions for the organizers?"></textarea>
+
+        <button type="submit" class="btn">Submit Registration</button>
+
+        <p id="formMessage" role="status" style="margin-top:15px"></p>
+    </form>
+</section>
+</main>
+
+<footer id="contact">
+    <h2>🏏 Sankrathi <span>Cup</span></h2>
+    <p>Play Together · Celebrate Together · Win Together</p>
+    <p>Contact: Add organizer phone number</p>
+    <p>© 2026 Sankrathi Festival Cricket Tournament</p>
+    <p><span>Happy Sankrathi! 🪁</span></p>
+</footer>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit",
+    function(event) {
+        event.preventDefault();
+
+        document.getElementById("formMessage").textContent =
+            "Your form is ready, but online registration is not connected yet. " +
+            "Please contact the tournament organizer to confirm your entry.";
+    }
+);
+</script>
+
+</body>
+</html>
