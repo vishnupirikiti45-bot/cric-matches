@@ -1,643 +1,667 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sankrathi Cup | Cricket Tournament</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-:root {
-    --navy: #082653;
-    --blue: #123d7a;
-    --gold: #ffbd16;
-    --orange: #f47721;
-    --white: #ffffff;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--navy);
-    background: #fffdf7;
-    line-height: 1.6;
-}
-
-header {
-    background: var(--navy);
-    color: white;
-    padding: 15px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-    color: var(--gold);
-}
-
-.logo span {
-    color: white;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 22px;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: var(--gold);
-}
-
-.hero {
-    min-height: 550px;
-    padding: 85px 8%;
-    display: flex;
-    align-items: center;
-    background:
-      linear-gradient(90deg,
-      rgba(255,248,220,.96),
-      rgba(255,255,255,.77),
-      rgba(255,246,210,.4)),
-      url("https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1800&q=85")
-      center/cover;
-}
-
-.hero-content {
-    max-width: 700px;
-}
-
-.tag {
-    display: inline-block;
-    background: var(--gold);
-    padding: 7px 18px;
-    border-radius: 30px;
-    font-weight: bold;
-    margin-bottom: 18px;
-}
-
-.hero h1 {
-    font-size: clamp(42px, 7vw, 75px);
-    line-height: 1.08;
-    margin-bottom: 18px;
-    color: var(--navy);
-}
-
-.hero h1 span {
-    color: #ed771d;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 25px;
-    max-width: 550px;
-}
-
-.btn {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--navy);
-    padding: 13px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: .25s;
-}
-
-.btn:hover {
-    background: var(--orange);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    background: var(--navy);
-    color: white;
-    margin-left: 10px;
-}
-
-.details {
-    margin: -35px auto 45px;
-    width: 88%;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background: white;
-    box-shadow: 0 8px 30px #001b3a1c;
-    border-radius: 18px;
-    padding: 28px 15px;
-}
-
-.detail {
-    text-align: center;
-    padding: 10px;
-    border-right: 1px solid #ddd;
-}
-
-.detail:last-child {
-    border-right: none;
-}
-
-.detail .emoji {
-    font-size: 30px;
-}
-
-.detail h3 {
-    font-size: 16px;
-}
-
-.detail p {
-    font-size: 14px;
-    color: #53647b;
-}
-
-section {
-    padding: 65px 8%;
-    scroll-margin-top: 75px;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 34px;
-    margin-bottom: 12px;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: #65748a;
-    margin-bottom: 35px;
-}
-
-.highlights {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-    margin-top: 35px;
-}
-
-.card {
-    background: white;
-    border-radius: 16px;
-    padding: 28px 20px;
-    box-shadow: 0 5px 22px #08265310;
-    text-align: center;
-    border-bottom: 4px solid var(--gold);
-    transition: .25s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px #08265320;
-}
-
-.card .emoji {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-.card h3 {
-    margin-bottom: 8px;
-}
-
-.schedule {
-    background: #eef4fc;
-}
-
-.match-list {
-    max-width: 850px;
-    margin: auto;
-}
-
-.match {
-    background: white;
-    padding: 20px 25px;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 3px 12px #001b3a0a;
-}
-
-.match strong {
-    color: var(--blue);
-}
-
-.match small {
-    color: #718096;
-}
-
-.rules-list {
-    max-width: 800px;
-    margin: 25px auto;
-    background: white;
-    padding: 30px 40px;
-    border-radius: 16px;
-    box-shadow: 0 5px 22px #08265310;
-}
-
-.rules-list li {
-    padding: 8px 0;
-}
-
-.registration {
-    background: linear-gradient(135deg, #082653, #174a88);
-    color: white;
-}
-
-.registration .section-subtitle {
-    color: #dbe7f8;
-}
-
-.form-box {
-    max-width: 650px;
-    margin: auto;
-    background: white;
-    color: var(--navy);
-    border-radius: 18px;
-    padding: 30px;
-}
-
-.form-box label {
-    display: block;
-    margin: 12px 0 5px;
-    font-weight: bold;
-}
-
-.form-box input,
-.form-box select,
-.form-box textarea {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #ccd5e1;
-    border-radius: 8px;
-    font: inherit;
-}
-
-.form-box input:focus,
-.form-box select:focus,
-.form-box textarea:focus {
-    outline: 2px solid var(--gold);
-    border-color: transparent;
-}
-
-.form-box .btn {
-    width: 100%;
-    margin-top: 20px;
-    font-size: 16px;
-}
-
-footer {
-    text-align: center;
-    padding: 30px 15px;
-    background: #061a38;
-    color: white;
-}
-
-footer span {
-    color: var(--gold);
-}
-
-@media (max-width: 850px) {
-    header {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    nav a {
-        margin: 0;
-    }
-
-    .details {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .detail:nth-child(2) {
-        border-right: none;
-    }
-
-    .detail:nth-child(-n+2) {
-        border-bottom: 1px solid #ddd;
-    }
-
-    .highlights {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 520px) {
-    .hero {
-        min-height: 460px;
-        padding: 60px 7%;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .btn-outline {
-        margin: 10px 0 0;
-    }
-
-    .details {
-        width: 92%;
-    }
-
-    .detail {
-        padding: 12px 5px;
-    }
-
-    .highlights {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title {
-        font-size: 27px;
-    }
-
-    section {
-        padding: 45px 6%;
-    }
-
-    .match {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .rules-list,
-    .form-box {
-        padding: 22px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sankranti Premier League 2027 | Pamuru</title>
+
+    <meta name="description"
+          content="Join Sankranti Premier League 2027 in Pamuru, Prakasam District, Andhra Pradesh. Register your team and compete for exciting prizes.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07111f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        header {
+            background: #0b1728;
+            border-bottom: 1px solid #26364a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: #facc15;
+            font-size: 21px;
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #facc15;
+        }
+
+        /* Hero section */
+
+        .hero {
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 90px 20px;
+            background:
+                radial-gradient(ellipse at top, #184d3c 0%, transparent 55%),
+                linear-gradient(135deg, #07111f, #102b25 55%, #07111f);
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: #facc15;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 75px);
+            line-height: 1.12;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #facc15;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #d1dbe7;
+            font-size: 18px;
+        }
+
+        .hero-details {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .hero-details span {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid #46566a;
+            border-radius: 30px;
+            padding: 9px 16px;
+            font-size: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #facc15;
+            color: #111827;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #fde047;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #facc15;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background: #facc15;
+            color: #111827;
+        }
+
+        /* Common sections */
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+            padding: 0 15px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #b8c4d4;
+        }
+
+        /* Tournament information */
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .info-card {
+            background: #111f32;
+            border: 1px solid #263b52;
+            border-radius: 14px;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .info-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .info-card h3 {
+            color: #facc15;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: #d1dbe7;
+            font-size: 14px;
+        }
+
+        /* Teams */
+
+        .dark-section {
+            background: #0b1728;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .team-card {
+            background: #13243a;
+            border: 1px solid #2c4057;
+            border-radius: 15px;
+            padding: 30px 15px;
+            text-align: center;
+            transition: 0.25s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            border-color: #facc15;
+        }
+
+        .team-icon {
+            font-size: 45px;
+            margin-bottom: 12px;
+        }
+
+        .team-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .team-card p {
+            color: #facc15;
+            font-size: 13px;
+        }
+
+        /* Prizes */
+
+        .prize-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            align-items: center;
+        }
+
+        .prize-card {
+            text-align: center;
+            padding: 35px 20px;
+            border-radius: 18px;
+            border: 1px solid #35465b;
+            background: #111f32;
+        }
+
+        .first-prize {
+            border: 2px solid #facc15;
+            background: linear-gradient(145deg, #493a0c, #172235);
+            padding-top: 45px;
+            padding-bottom: 45px;
+        }
+
+        .prize-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .prize-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .prize-amount {
+            color: #facc15;
+            font-size: clamp(25px, 3vw, 36px);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .prize-card span {
+            color: #c1cbd8;
+            font-size: 14px;
+        }
+
+        /* Registration */
+
+        .registration {
+            background:
+                radial-gradient(ellipse at bottom, #174334, transparent 65%),
+                #07111f;
+        }
+
+        .registration-card {
+            max-width: 720px;
+            margin: auto;
+            padding: 35px;
+            background: #111f32;
+            border: 1px solid #344a60;
+            border-radius: 18px;
+        }
+
+        .registration-card p {
+            padding: 12px 0;
+            border-bottom: 1px solid #2a3a4e;
+            color: #dce5ef;
+        }
+
+        .registration-card strong {
+            color: #ffffff;
+        }
+
+        .registration-action {
+            text-align: center;
+            margin-top: 28px;
+        }
+
+        .registration-action .btn {
+            margin-bottom: 15px;
+        }
+
+        .note {
+            color: #9caec2 !important;
+            border: none !important;
+            font-size: 13px;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #050b14;
+            border-top: 1px solid #243347;
+            text-align: center;
+            padding: 30px 15px;
+            color: #aab7c8;
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: #facc15;
+        }
+
+        /* Responsive layout */
+
+        @media (max-width: 850px) {
+            .info-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: 480px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 55px 0;
+            }
+
+            .info-grid,
+            .team-grid,
+            .prize-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .registration-card {
+                padding: 22px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">🏏 Sankrathi <span>Cup</span></div>
+    <!-- Navigation -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">🏏 SPL 2027</a>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#schedule">Schedule</a>
-        <a href="#rules">Rules</a>
-        <a href="#register">Registration</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#details">Details</a>
+                <a href="#teams">Teams</a>
+                <a href="#prizes">Prizes</a>
+                <a href="#register">Register</a>
+            </div>
+        </nav>
+    </header>
 
-<main>
-<section class="hero" id="home">
-    <div class="hero-content">
-        <div class="tag">🪁 Celebrate the Festival of Harvest</div>
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div>
+            <span class="eyebrow">🏆 THE BIGGEST SANKRANTI CRICKET CELEBRATION</span>
 
-        <h1>SANKRATHI <span>FESTIVAL</span><br>CRICKET CUP</h1>
+            <h1>
+                SANKRANTI<br>
+                <span>PREMIER LEAGUE</span>
+                2027
+            </h1>
 
+            <p>
+                Eight teams. One trophy. Unforgettable cricket action.
+                Celebrate Sankranti with an exciting cricket tournament
+                in Pamuru, Andhra Pradesh.
+            </p>
+
+            <div class="hero-details">
+                <span>📅 13–14 January 2027</span>
+                <span>📍 Pamuru, Prakasam District</span>
+                <span>🏏 8 Teams</span>
+            </div>
+
+            <a href="#register" class="btn">Register Your Team →</a>
+            <a href="#prizes" class="btn btn-outline">View Prizes</a>
+        </div>
+    </section>
+
+    <!-- Tournament details -->
+    <section class="section" id="details">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">TOURNAMENT INFORMATION</span>
+                <h2>Everything You Need to Know</h2>
+                <p>Get your team ready for the ultimate cricket challenge.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">📅</div>
+                    <h3>Tournament Dates</h3>
+                    <p>13–14 January 2027</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <h3>Venue</h3>
+                    <p>Pamuru, Prakasam District, Andhra Pradesh</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🏏</div>
+                    <h3>Participating Teams</h3>
+                    <p>Limited to 8 teams</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🎟️</div>
+                    <h3>Entry Fee</h3>
+                    <p>₹1,200 per team</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams: displayed only once -->
+    <section class="section dark-section" id="teams">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">8 TEAMS · ONE TROPHY</span>
+                <h2>Meet the Challengers</h2>
+                <p>Choose your favourite team and support them to victory!</p>
+            </div>
+
+            <div class="team-grid">
+                <article class="team-card">
+                    <div class="team-icon">🦁</div>
+                    <h3>Royal Lions XI</h3>
+                    <p>Team 01</p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">🐯</div>
+                    <h3>Warrior Tigers</h3>
+                    <p>Team 02</p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">🦅</div>
+                    <h3>Eagle Strikers</h3>
+                    <p>Team 03</p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">🔥</div>
+                    <h3>Fire Challengers</h3>
+                    <p>Team 04</p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">🐆</div>
+                    <h3>Black Panthers</h3>
+                    <p>Team 05</p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">👑</div>
+                    <h3>Royal Kings</h3>
+                    <p>Team 06</p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">⚡</div>
+                    <h3>Thunder Warriors</h3>
+                    <p>Team 07</p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">🏏</div>
+                    <h3>Super Strikers</h3>
+                    <p>Team 08</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prize money: displayed only once -->
+    <section class="section" id="prizes">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">🏆 BIG REWARDS, BIG MOMENTS</span>
+                <h2>Tournament Prize Money</h2>
+                <p>Compete with passion and take home the rewards!</p>
+            </div>
+
+            <div class="prize-grid">
+                <div class="prize-card second-prize">
+                    <div class="prize-icon">🥈</div>
+                    <h3>2nd Prize</h3>
+                    <p class="prize-amount">₹70,000</p>
+                    <span>Runner-up</span>
+                </div>
+
+                <div class="prize-card first-prize">
+                    <div class="prize-icon">🏆</div>
+                    <h3>1st Prize</h3>
+                    <p class="prize-amount">₹1,00,000</p>
+                    <span>Tournament Champion</span>
+                </div>
+
+                <div class="prize-card third-prize">
+                    <div class="prize-icon">🥉</div>
+                    <h3>3rd Prize</h3>
+                    <p class="prize-amount">₹40,000</p>
+                    <span>Third Place</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration: displayed only once -->
+    <section class="section registration" id="register">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">REGISTRATIONS OPEN</span>
+                <h2>Register Your Team</h2>
+                <p>Get ready for two days of exciting cricket action!</p>
+            </div>
+
+            <div class="registration-card">
+                <p>📍 <strong>Venue:</strong>
+                    Pamuru, Prakasam District, Andhra Pradesh</p>
+
+                <p>📅 <strong>Dates:</strong>
+                    13–14 January 2027</p>
+
+                <p>🏏 <strong>Teams:</strong>
+                    8 teams</p>
+
+                <p>🎟️ <strong>Entry fee:</strong>
+                    ₹1,200 per team</p>
+
+                <p>🏆 <strong>1st prize:</strong>
+                    ₹1,00,000</p>
+
+                <p>🥈 <strong>2nd prize:</strong>
+                    ₹70,000</p>
+
+                <p>🥉 <strong>3rd prize:</strong>
+                    ₹40,000</p>
+
+                <div class="registration-action">
+                    <!-- Replace 91YOURNUMBER with the organizer's
+                         WhatsApp number, including country code.
+                         Example format: 919876543210 -->
+
+                    <a
+                        class="btn"
+                        href="https://wa.me/91YOURNUMBER?text=Hello%2C%20I%20want%20to%20register%20my%20team%20for%20Sankranti%20Premier%20League%202027."
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Register on WhatsApp →
+                    </a>
+
+                    <p class="note">
+                        Before publishing, replace 91YOURNUMBER with
+                        the organizer's actual WhatsApp number.
+                        Use country code 91 followed by the mobile
+                        number, without spaces or the plus sign.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
         <p>
-            One festival. One passion. One trophy!
-            Join us for an exciting cricket tournament filled
-            with sportsmanship, celebration, and unforgettable memories.
+            🏏 <strong>Sankranti Premier League 2027</strong>
         </p>
-
-        <a href="#register" class="btn">🏏 Register Your Team</a>
-        <a href="#schedule" class="btn btn-outline">View Matches</a>
-    </div>
-</section>
-
-<div class="details">
-    <div class="detail">
-        <div class="emoji">📅</div>
-        <h3>Tournament Date</h3>
-        <p>Update event date</p>
-    </div>
-
-    <div class="detail">
-        <div class="emoji">📍</div>
-        <h3>Venue</h3>
-        <p>Your Cricket Ground</p>
-    </div>
-
-    <div class="detail">
-        <div class="emoji">🏏</div>
-        <h3>Teams</h3>
-        <p>8 Teams · T20 Format</p>
-    </div>
-
-    <div class="detail">
-        <div class="emoji">🏆</div>
-        <h3>Entry Fee</h3>
-        <p>Update entry fee</p>
-    </div>
-</div>
-
-<section id="about">
-    <h2 class="section-title">Tournament Highlights</h2>
-    <p class="section-subtitle">
-        More than cricket — a celebration of our Sankrathi spirit!
-    </p>
-
-    <div class="highlights">
-        <div class="card">
-            <div class="emoji">🏏</div>
-            <h3>Exciting Matches</h3>
-            <p>Experience competitive cricket and thrilling finishes.</p>
-        </div>
-
-        <div class="card">
-            <div class="emoji">👥</div>
-            <h3>Team Spirit</h3>
-            <p>Bring your team together and compete for the cup.</p>
-        </div>
-
-        <div class="card">
-            <div class="emoji">🏆</div>
-            <h3>Exciting Prizes</h3>
-            <p>Trophies, awards, and prizes for top performers.</p>
-        </div>
-
-        <div class="card">
-            <div class="emoji">🪁</div>
-            <h3>Festival Fun</h3>
-            <p>Enjoy cricket, friendship, and Sankrathi celebrations.</p>
-        </div>
-    </div>
-</section>
-
-<section class="schedule" id="schedule">
-    <h2 class="section-title">Match Schedule</h2>
-    <p class="section-subtitle">
-        Sample fixtures — update teams, dates, and times before publishing.
-    </p>
-
-    <div class="match-list">
-        <div class="match">
-            <div>
-                <strong>Match 01</strong><br>
-                Team A 🆚 Team B
-            </div>
-            <div>
-                <small>League Match</small><br>
-                9:00 AM
-            </div>
-        </div>
-
-        <div class="match">
-            <div>
-                <strong>Match 02</strong><br>
-                Team C 🆚 Team D
-            </div>
-            <div>
-                <small>League Match</small><br>
-                11:00 AM
-            </div>
-        </div>
-
-        <div class="match">
-            <div>
-                <strong>Match 03</strong><br>
-                Team E 🆚 Team F
-            </div>
-            <div>
-                <small>League Match</small><br>
-                1:00 PM
-            </div>
-        </div>
-
-        <div class="match">
-            <div>
-                <strong>Grand Final</strong><br>
-                Finalists 🆚 Finalists
-            </div>
-            <div>
-                <small>Championship</small><br>
-                3:00 PM
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="rules">
-    <h2 class="section-title">Tournament Rules</h2>
-    <p class="section-subtitle">
-        Play fair, respect opponents, and enjoy the game.
-    </p>
-
-    <div class="rules-list">
-        <ol>
-            <li>Each team must register before the registration deadline.</li>
-            <li>Match format and overs will be confirmed by organizers.</li>
-            <li>Players must follow the umpire's decisions.</li>
-            <li>Teams should report to the venue before match time.</li>
-            <li>In case of a tie, the organizers will announce the tie-break rules.</li>
-            <li>Any disputes will be resolved by the tournament committee.</li>
-            <li>Organizers reserve the right to modify the schedule when necessary.</li>
-        </ol>
-    </div>
-</section>
-
-<section class="registration" id="register">
-    <h2 class="section-title">Register Your Team</h2>
-    <p class="section-subtitle">
-        Get ready to play, celebrate, and lift the Sankrathi Cup!
-    </p>
-
-    <form class="form-box" id="registrationForm">
-        <label for="captain">Captain Name</label>
-        <input type="text" id="captain" name="captain"
-               placeholder="Enter captain name" required>
-
-        <label for="team">Team Name</label>
-        <input type="text" id="team" name="team"
-               placeholder="Enter your team name" required>
-
-        <label for="phone">Contact Number</label>
-        <input type="tel" id="phone" name="phone"
-               placeholder="Enter mobile number"
-               pattern="[0-9]{10}" maxlength="10" required>
-
-        <label for="players">Number of Players</label>
-        <select id="players" name="players" required>
-            <option value="">Select players</option>
-            <option value="11">11 Players</option>
-            <option value="12">12 Players</option>
-            <option value="15">15 Players</option>
-        </select>
-
-        <label for="city">City / Area</label>
-        <input type="text" id="city" name="city"
-               placeholder="Enter your location" required>
-
-        <label for="message">Additional Details (Optional)</label>
-        <textarea id="message" name="message" rows="3"
-                  placeholder="Any questions for the organizers?"></textarea>
-
-        <button type="submit" class="btn">Submit Registration</button>
-
-        <p id="formMessage" role="status" style="margin-top:15px"></p>
-    </form>
-</section>
-</main>
-
-<footer id="contact">
-    <h2>🏏 Sankrathi <span>Cup</span></h2>
-    <p>Play Together · Celebrate Together · Win Together</p>
-    <p>Contact: Add organizer phone number</p>
-    <p>© 2026 Sankrathi Festival Cricket Tournament</p>
-    <p><span>Happy Sankrathi! 🪁</span></p>
-</footer>
-
-<script>
-document.getElementById("registrationForm").addEventListener("submit",
-    function(event) {
-        event.preventDefault();
-    
-
-        document.getElementById("formMessage").textContent =
-            "Your form is ready, but online registration is not connected yet. " +
-            "Please contact the tournament organizer to confirm your entry.";
-    }
-);
-</script>
+        <p>Pamuru, Prakasam District, Andhra Pradesh</p>
+        <p>13–14 January 2027 · Eight Teams · One Champion</p>
+        <p>© 2027 Sankranti Premier League. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
-<a href="#prizes">Prizes</a>
-
-<nav id="navMenu">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#teams">Teams</a>
-  <a href="#prizes">Prizes</a>
-  <a href="#matches">Matches</a>
-  <a href="#points">Points Table</a>
-  <a href="#register">Register</a>
-</nav>
-<link rel="Rindexsheet" href="index.html"
-<link rel="uindexsheet" href="index.html"
-<link rel="updateindexsheet" href="index.html"
+```
