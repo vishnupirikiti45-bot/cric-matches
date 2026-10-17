@@ -8,7 +8,7 @@
     <title>Sankranti Premier League 2027 | Pamuru</title>
 
     <meta name="description"
-          content="Join Sankranti Premier League 2027 in Pamuru, Prakasam District, Andhra Pradesh. Register your team and compete for exciting prizes.">
+          content="Register your team for Sankranti Premier League 2027 in Pamuru, Prakasam District, Andhra Pradesh.">
 
     <style>
         * {
@@ -64,12 +64,12 @@
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 22px;
             flex-wrap: wrap;
         }
 
         .nav-links a {
-            color: #ffffff;
+            color: white;
             font-size: 14px;
         }
 
@@ -79,8 +79,6 @@
 
         /* Hero section */
 
-
-        
         .hero {
             min-height: 600px;
             display: flex;
@@ -89,30 +87,16 @@
             text-align: center;
             padding: 90px 20px;
 
-         /* Cricket stadium background image */
             background:
                 linear-gradient(
-                rgba(3, 9, 20, 0.62),
-                rgba(3, 9, 20, 0.72)
+                    rgba(3, 9, 20, 0.48),
+                    rgba(3, 9, 20, 0.75)
                 ),
                 url("cricket-stadium.jpg");
 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-        }
-
-
-        .hero {
-            min-height: 560px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 90px 20px;
-            background:
-                radial-gradient(ellipse at top, #184d3c 0%, transparent 55%),
-                linear-gradient(135deg, #07111f, #102b25 55%, #07111f);
         }
 
         .eyebrow {
@@ -137,7 +121,7 @@
         .hero p {
             max-width: 700px;
             margin: 0 auto 25px;
-            color: #d1dbe7;
+            color: #f1f5f9;
             font-size: 18px;
         }
 
@@ -150,8 +134,8 @@
         }
 
         .hero-details span {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid #46566a;
+            background: rgba(5, 15, 30, 0.75);
+            border: 1px solid #64748b;
             border-radius: 30px;
             padding: 9px 16px;
             font-size: 14px;
@@ -174,7 +158,7 @@
 
         .btn-outline {
             background: transparent;
-            color: #ffffff;
+            color: white;
             border: 1px solid #facc15;
             margin-left: 10px;
         }
@@ -187,12 +171,12 @@
         /* Common sections */
 
         .section {
-            padding: 80px 0;
+            padding: 75px 0;
         }
 
         .section-heading {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 42px;
             padding: 0 15px;
         }
 
@@ -202,10 +186,10 @@
         }
 
         .section-heading p {
-            color: #b8c4d4;
+            color: #c1ccda;
         }
 
-        /* Tournament information */
+        /* Tournament details */
 
         .info-grid {
             display: grid;
@@ -278,7 +262,7 @@
             font-size: 13px;
         }
 
-        /* Prizes */
+        /* Prize section */
 
         .prize-grid {
             display: grid;
@@ -324,11 +308,15 @@
             font-size: 14px;
         }
 
-        /* Registration */
+        /* Registration section */
 
         .registration {
             background:
-                radial-gradient(ellipse at bottom, #174334, transparent 65%),
+                radial-gradient(
+                    ellipse at bottom,
+                    #174334,
+                    transparent 65%
+                ),
                 #07111f;
         }
 
@@ -339,10 +327,11 @@
             background: #111f32;
             border: 1px solid #344a60;
             border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
         }
 
-        .registration-card p {
-            padding: 12px 0;
+        .registration-card > p {
+            padding: 10px 0;
             border-bottom: 1px solid #2a3a4e;
             color: #dce5ef;
         }
@@ -351,21 +340,78 @@
             color: #ffffff;
         }
 
-        .registration-action {
-            text-align: center;
-            margin-top: 28px;
+        #cricketRegistrationForm {
+            margin-top: 25px;
         }
 
-        .registration-action .btn {
-            margin-bottom: 15px;
+        #cricketRegistrationForm label {
+            display: block;
+            margin: 17px 0 7px;
+            color: #f1f5f9;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #cricketRegistrationForm input,
+        #cricketRegistrationForm select {
+            display: block;
+            width: 100%;
+            padding: 13px 14px;
+            border-radius: 8px;
+            border: 1px solid #40536b;
+            background: #091626;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        #cricketRegistrationForm input:focus,
+        #cricketRegistrationForm select:focus {
+            border-color: #facc15;
+            box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.15);
+        }
+
+        #cricketRegistrationForm input::placeholder {
+            color: #91a0b4;
+        }
+
+        #cricketRegistrationForm select option {
+            background: #091626;
+            color: white;
+        }
+
+        .register-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 25px;
+            background: #facc15;
+            color: #111827;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .register-btn:hover {
+            background: #fde047;
+            transform: translateY(-2px);
+        }
+
+        #formMessage {
+            margin-top: 18px;
+            text-align: center;
+            font-weight: bold;
+            overflow-wrap: anywhere;
         }
 
         .note {
-            color: #9caec2 !important;
-            border: none !important;
+            color: #9caec2;
             font-size: 13px;
+            margin-top: 12px;
             text-align: center;
-            overflow-wrap: anywhere;
         }
 
         /* Footer */
@@ -383,7 +429,7 @@
             color: #facc15;
         }
 
-        /* Responsive layout */
+        /* Mobile responsive */
 
         @media (max-width: 850px) {
             .info-grid,
@@ -391,12 +437,12 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .nav-links {
-                gap: 12px;
+            nav {
+                flex-wrap: wrap;
             }
 
-            .logo {
-                font-size: 17px;
+            .nav-links {
+                gap: 12px;
             }
         }
 
@@ -415,7 +461,8 @@
             }
 
             .hero {
-                min-height: 480px;
+                min-height: 500px;
+                padding: 70px 15px;
             }
 
             .hero p {
@@ -437,8 +484,7 @@
             }
 
             .btn-outline {
-                margin-left: 0;
-                margin-top: 12px;
+                margin: 12px 0 0;
             }
         }
     </style>
@@ -461,14 +507,16 @@
         </nav>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero section -->
     <section class="hero" id="home">
         <div>
-            <span class="eyebrow">🏆 THE BIGGEST SANKRANTI CRICKET CELEBRATION</span>
+            <span class="eyebrow">
+                🏆 THE SANKRANTI CRICKET CELEBRATION
+            </span>
 
             <h1>
                 SANKRANTI<br>
-                <span>PREMIER LEAGUE</span>
+                <span>PREMIER LEAGUE</span><br>
                 2027
             </h1>
 
@@ -484,14 +532,20 @@
                 <span>🏏 8 Teams</span>
             </div>
 
-            <a href="#register" class="btn">Register Your Team →</a>
-            <a href="#prizes" class="btn btn-outline">View Prizes</a>
+            <a href="#register" class="btn">
+                Register Your Team →
+            </a>
+
+            <a href="#prizes" class="btn btn-outline">
+                View Prizes
+            </a>
         </div>
     </section>
 
     <!-- Tournament details -->
     <section class="section" id="details">
         <div class="container">
+
             <div class="section-heading">
                 <span class="eyebrow">TOURNAMENT INFORMATION</span>
                 <h2>Everything You Need to Know</h2>
@@ -526,9 +580,10 @@
         </div>
     </section>
 
-    <!-- Teams: displayed only once -->
+    <!-- Teams section -->
     <section class="section dark-section" id="teams">
         <div class="container">
+
             <div class="section-heading">
                 <span class="eyebrow">8 TEAMS · ONE TROPHY</span>
                 <h2>Meet the Challengers</h2>
@@ -587,9 +642,10 @@
         </div>
     </section>
 
-    <!-- Prize money: displayed only once -->
+    <!-- Prize money section -->
     <section class="section" id="prizes">
         <div class="container">
+
             <div class="section-heading">
                 <span class="eyebrow">🏆 BIG REWARDS, BIG MOMENTS</span>
                 <h2>Tournament Prize Money</h2>
@@ -621,70 +677,184 @@
         </div>
     </section>
 
-    <!-- Registration: displayed only once -->
+    <!-- Registration section with form -->
     <section class="section registration" id="register">
         <div class="container">
+
             <div class="section-heading">
                 <span class="eyebrow">REGISTRATIONS OPEN</span>
                 <h2>Register Your Team</h2>
-                <p>Get ready for two days of exciting cricket action!</p>
+                <p>Join the Sankranti Cricket Tournament 2027!</p>
             </div>
 
             <div class="registration-card">
-                <p>📍 <strong>Venue:</strong>
-                    Pamuru, Prakasam District, Andhra Pradesh</p>
 
-                <p>📅 <strong>Dates:</strong>
-                    13–14 January 2027</p>
+                <p>
+                    <strong>📍 Venue:</strong>
+                    Pamuru, Prakasam District, Andhra Pradesh
+                </p>
 
-                <p>🏏 <strong>Teams:</strong>
-                    8 teams</p>
+                <p>
+                    <strong>📅 Dates:</strong>
+                    13–14 January 2027
+                </p>
 
-                <p>🎟️ <strong>Entry fee:</strong>
-                    ₹1,200 per team</p>
+                <p>
+                    <strong>💰 Entry Fee:</strong>
+                    ₹1,200 per team
+                </p>
 
-                <p>🏆 <strong>1st prize:</strong>
-                    ₹1,00,000</p>
+                <form id="cricketRegistrationForm">
 
-                <p>🥈 <strong>2nd prize:</strong>
-                    ₹70,000</p>
+                    <label for="teamName">Team Name</label>
+                    <input
+                        type="text"
+                        id="teamName"
+                        name="teamName"
+                        placeholder="Enter your team name"
+                        maxlength="80"
+                        required>
 
-                <p>🥉 <strong>3rd prize:</strong>
-                    ₹40,000</p>
+                    <label for="captainName">Captain Name</label>
+                    <input
+                        type="text"
+                        id="captainName"
+                        name="captainName"
+                        placeholder="Enter captain name"
+                        maxlength="80"
+                        required>
 
-                <div class="registration-action">
-                    <!-- Replace 91YOURNUMBER with the organizer's
-                         WhatsApp number, including country code.
-                         Example format: 919876543210 -->
+                    <label for="phone">Contact Number</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="10-digit mobile number"
+                        pattern="[6-9][0-9]{9}"
+                        maxlength="10"
+                        inputmode="numeric"
+                        title="Enter a valid 10-digit Indian mobile number"
+                        required>
 
-                    <a
-                        class="btn"
-                        href="https://wa.me/91YOURNUMBER?text=Hello%2C%20I%20want%20to%20register%20my%20team%20for%20Sankranti%20Premier%20League%202027."
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        Register on WhatsApp →
-                    </a>
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email address"
+                        maxlength="120"
+                        required>
+
+                    <label for="players">Number of Players</label>
+                    <select id="players" name="players" required>
+                        <option value="">Select players</option>
+                        <option value="11">11 Players</option>
+                        <option value="12">12 Players</option>
+                        <option value="15">15 Players</option>
+                    </select>
+
+                    <label for="city">Team Location</label>
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        placeholder="Enter your town or village"
+                        maxlength="100"
+                        required>
+
+                    <button type="submit" class="register-btn">
+                        Submit Registration →
+                    </button>
+
+                    <p id="formMessage" role="status" aria-live="polite"></p>
 
                     <p class="note">
-                        Before publishing, replace 91YOURNUMBER with
-                        the organizer's actual WhatsApp number.
-                        Use country code 91 followed by the mobile
-                        number, without spaces or the plus sign.
+                        Please verify your details before submitting.
                     </p>
-                </div>
+
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>
-            🏏 <strong>Sankranti Premier League 2027</strong>
-        </p>
+        <p><strong>🏏 Sankranti Premier League 2027</strong></p>
         <p>Pamuru, Prakasam District, Andhra Pradesh</p>
         <p>13–14 January 2027 · Eight Teams · One Champion</p>
         <p>© 2027 Sankranti Premier League. All rights reserved.</p>
     </footer>
+
+    <!-- Form validation -->
+    <script>
+        const registrationForm =
+            document.getElementById("cricketRegistrationForm");
+
+        const formMessage =
+            document.getElementById("formMessage");
+
+        registrationForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            if (!registrationForm.checkValidity()) {
+                registrationForm.reportValidity();
+                return;
+            }
+
+            const teamName =
+                document.getElementById("teamName").value.trim();
+
+            const captainName =
+                document.getElementById("captainName").value.trim();
+
+            const phone =
+                document.getElementById("phone").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const players =
+                document.getElementById("players").value;
+
+            const city =
+                document.getElementById("city").value.trim();
+
+            if (!teamName || !captainName || !email || !city) {
+                formMessage.style.color = "#f87171";
+                formMessage.textContent =
+                    "Please fill in all required fields.";
+                return;
+            }
+
+            if (!/^[6-9][0-9]{9}$/.test(phone)) {
+                formMessage.style.color = "#f87171";
+                formMessage.textContent =
+                    "Please enter a valid 10-digit mobile number.";
+                return;
+            }
+
+            /*
+              Front-end demonstration only.
+              No registration data is stored or sent to an organizer.
+            */
+
+            const registration = {
+                teamName: teamName,
+                captainName: captainName,
+                phone: phone,
+                email: email,
+                players: players,
+                city: city
+            };
+
+            console.log("Registration details:", registration);
+
+            formMessage.style.color = "#facc15";
+            formMessage.textContent =
+                "Form validated successfully! Connect a backend or form service to submit your registration.";
+
+        });
+    </script>
 
 </body>
 </html>
